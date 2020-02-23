@@ -1,0 +1,6 @@
+bd/edu/seu/ajlab1/repository/ProductDaoCsvImplementation.class
+bd/edu/seu/ajlab1/repository/ProductDao.class
+bd/edu/seu/ajlab1/service/ProductService.class
+bd/edu/seu/ajlab1/model/Product.class
+bd/edu/seu/ajlab1/Main.class
+bd/edu/seu/ajlab1/repository/ProductDaoMySQLImplementation.class
