@@ -22,9 +22,10 @@ public interface ProductDao {
         return null;
     }
     
-    public void createProduct(Product product);
-    public void deleteProduct(int productId);
-    public void updateProduct(int productId, Product product);
+    default public void createProduct(Product product) {}
+    default public void deleteProduct(int productId) {}
+    default public void updateProduct(int productId, Product product) {}
+    default public void deleteAll() {}
 }
 // Singleton design pattern
 // TODO advanced

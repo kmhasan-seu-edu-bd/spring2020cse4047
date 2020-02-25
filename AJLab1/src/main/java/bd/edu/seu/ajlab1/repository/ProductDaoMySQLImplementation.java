@@ -104,6 +104,47 @@ public class ProductDaoMySQLImplementation implements ProductDao {
         
         return productList;
     }
+
+    @Override
+    public void createProduct(Product product) {
+        try {
+            Connection connection = ConnectionSingleton.getConnection();
+            Statement statement = connection.createStatement();
+            
+            // TODO why mix Java + SQL
+            String query = String.format("INSERT INTO product VALUES(%d, \"%s\", \"%s\", %f, %f, %f, %f, %b)",
+                    product.getProductID(),
+                    product.getProductName(),
+                    product.getQuantityPerUnit(),
+                    product.getUnitPrice(),
+                    product.getUnitsInStock(),
+                    product.getUnitsOnOrder(),
+                    product.getReorderLevel(),
+                    product.isDiscontinued());
+            System.out.println("Query: " + query);
+            int rowCount = statement.executeUpdate(query);
+            System.out.println("Inserted " + rowCount + " rows");
+            // TODO how can we tell the user that the insert operation failed?
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            Logger.getLogger(ProductDaoMySQLImplementation.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @Override
+    public void deleteAll() {
+        try {
+            Connection connection = ConnectionSingleton.getConnection();
+            Statement statement = connection.createStatement();
+            String query = "DELETE FROM product";
+            int rowCount = statement.executeUpdate(query);
+            System.out.println("Deleted " + rowCount + " rows");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            Logger.getLogger(ProductDaoMySQLImplementation.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
     
 }
 

@@ -20,6 +20,7 @@ public class ConnectionSingleton {
     private static Connection connection;
     
     private ConnectionSingleton() {
+        // TODO see how Property files are used in Java
         String hostname = "123.200.8.61";
         String dbname = "productdb";
         String url = "jdbc:mysql://" + hostname + "/" + dbname;
