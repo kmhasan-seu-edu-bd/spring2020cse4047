@@ -8,21 +8,12 @@ import javax.persistence.Query;
 import java.io.Serializable;
 import java.util.List;
 
-public class ProductDaoMySqlImplementation implements ProductDao {
+public class ProductDaoMySqlImplementation implements GenericDao<Product> {
+    // REMOVE THIS ONE BY WRITING DEFAULT IMPLEMENTATION OF FINDALL
     public List<Product> findAll() {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Query q = session.createQuery("From Product ", Product.class);
         List<Product> resultList = q.getResultList();
         return resultList;
-    }
-
-    public Product save(Product product) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-        session.save(product);
-        session.getTransaction().commit();
-
-        // TODO got to fix the return
-        return product;
     }
 }
