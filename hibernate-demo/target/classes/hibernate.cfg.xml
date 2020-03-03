@@ -21,5 +21,6 @@
         <property name="current_session_context_class">thread</property>
 
         <mapping class="bd.edu.seu.hibernatedemo.model.Product" />
+        <mapping class="bd.edu.seu.hibernatedemo.model.Supplier" />
     </session-factory>
 </hibernate-configuration>

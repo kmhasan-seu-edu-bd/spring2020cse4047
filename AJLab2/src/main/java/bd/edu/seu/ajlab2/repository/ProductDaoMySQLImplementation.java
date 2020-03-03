@@ -56,7 +56,7 @@ public class ProductDaoMySQLImplementation implements ProductDao {
                 double unitsOnOrder = resultSet.getDouble("unitsOnOrder");
                 double reorderLevel = resultSet.getDouble("reorderLevel");
                 boolean discontinued = resultSet.getBoolean("discontinued"); 
-                
+
                 Product product = new Product(id, 
                         productName, 
                         quantityPerUnit,
