@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.time.LocalDate;
 
 @Data
 @AllArgsConstructor
@@ -16,4 +17,5 @@ public class Student {
     private long id;
     private String name;
     private double cgpa;
+    private LocalDate dateOfBirth;
 }
