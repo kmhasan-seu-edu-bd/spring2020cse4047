@@ -9,4 +9,5 @@ import java.util.Optional;
 public interface StudentRepository extends CrudRepository<Student, Long> {
     List<Student> findByName(String name);
     List<Student> findAllByNameContains(String partial);
+    List<Student> findAllByCgpaGreaterThanEqual(double cgpa);
 }
