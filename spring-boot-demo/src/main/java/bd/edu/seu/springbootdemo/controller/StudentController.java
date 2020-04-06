@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("student")
+@RequestMapping("students")
 public class StudentController {
     private StudentRepository studentRepository;
 
@@ -46,5 +46,16 @@ public class StudentController {
     public Student getStudent(@PathVariable long id) {
         Student student = studentRepository.findById(id).get(); // This is sooooo wrong
         return student;
+    }
+
+    @PostMapping("")
+    public Student createStudent(@RequestBody Student student) {
+        Student savedStudent = studentRepository.save(student);
+        return savedStudent;
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteStudent(@PathVariable long id) {
+        studentRepository.deleteById(id);
     }
 }
